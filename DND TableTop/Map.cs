@@ -1,9 +1,12 @@
-﻿namespace DND_TableTop
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace DND_TableTop
 {
     internal class Map
     {
         char[,] map = new char[9,9];
         char[,] discoveredMap = new char[9, 9];
+        int[,] treeMap = new int[9, 9];
         List<int[]> roomsList = new List<int[]>();
 
         int mapLen = 20;
@@ -15,9 +18,10 @@
                 for (int j = 0; j < 9; j++)
                 {
                     map[i,j] = '@';
+                    discoveredMap[i, j] = '@';
+                    treeMap[i, j] = 0;
                 }
             }
-            discoveredMap = map;
 
             int[] currentPos = playerPos;
             map[currentPos[0], currentPos[1]] = '*';
@@ -34,22 +38,22 @@
                 }
             }
 
-            Random random = new Random();
-            while (roomsList.Count < 10 + random.Next(10))
-            {
-                int rndRoom = random.Next(roomsList.Count);
-                currentPos = roomsList[rndRoom];
+            //Random random = new Random();
+            //while (roomsList.Count < 10 + random.Next(10))
+            //{
+            //    int rndRoom = random.Next(roomsList.Count);
+            //    currentPos = roomsList[rndRoom];
                 
-                for (int i = 0;i < random.Next(7); i++)
-                {
-                    currentPos = AddRoom(currentPos);
-                }
-            }
+            //    for (int i = 0;i < random.Next(7); i++)
+            //    {
+            //        currentPos = AddRoom(currentPos);
+            //    }
+            //}
 
             List<int[]> treeList = new List<int[]>();
-            int[] bestTree = Tree(treeList, [playerPos[0], playerPos[1], 0], [playerPos[0], playerPos[1], 0]);
-            map[bestTree[0], bestTree[1]] = 'B';
-            
+            //int[] bestTree = Tree(treeList, [playerPos[0], playerPos[1], 0], [playerPos[0], playerPos[1], 0]);
+            //map[bestTree[0], bestTree[1]] = 'B';
+            Waheur(treeList, [8,4], 0);
         }
 
         private int[] AddRoom(int[] currentPos)
@@ -97,6 +101,7 @@
 
         private int[] Tree(List<int[]> way,int[] pos, int[]bestPos)
         {
+            treeMap[pos[0], pos[1]] =  pos[2];
             int[] next = pos;
             way.Add(pos);
             if (pos[0] > 0)
@@ -156,6 +161,42 @@
             return bestPos;
         }
 
+        void Waheur(List<int[]>map, int[] pos, int iteration)
+        {
+            if (treeMap[pos[0], pos[1]] == 0 || treeMap[pos[0], pos[1]] > iteration)
+            {
+                treeMap[pos[0], pos[1]] = iteration;
+                PrintMap();
+            }
+            Console.WriteLine(pos[0] + " " + pos[1]);
+            List<int[]> way = new List<int[]>();
+
+            if (pos[1] > 0)
+            {
+                way.Add(new int[] { pos[0], pos[1] - 1 });
+            }
+
+            if (pos[1] < treeMap.GetLength(1) - 1)
+            {
+                way.Add(new int[] { pos[0], pos[1] + 1 });
+            }
+
+            if (pos[0] > 0)
+            {
+                way.Add(new int[] { pos[0] - 1, pos[1] });
+            }
+
+            if (way.Any())
+            {
+                foreach (int[] i in way)
+                {
+                    Waheur(map, i, iteration + 1);
+                }
+            }
+
+            return;
+        }
+
         public void PrintMap()
         {
             Console.WriteLine("       ~#~#~#~#~#~#~#~#####~#~#~#~#~#~#~#~");
@@ -165,7 +206,7 @@
                 print = "        ~       ";
                 for (int j = 0; j < 9; j++)
                 {
-                    print += map[i, j] + " ";
+                    print += treeMap[i, j] + " ";
                 }
                 print += "       ~";
                 Console.WriteLine(print);
