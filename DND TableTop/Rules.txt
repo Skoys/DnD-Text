@@ -1,0 +1,17 @@
+Knight:
+Resistance
+
+Barbarian:
+Attack
+
+Wizard:
+Zone
+
+Roque:
+Dodging
+
+
+Player Sheet:
+Character - List
+Position - Double
+Gold - int
