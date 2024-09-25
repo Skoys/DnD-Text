@@ -31,3 +31,10 @@ monsters
 -slime
 -lich
 -golem
+
+
+Goblin
+Skeleton
+Slime
+Lich
+Golem

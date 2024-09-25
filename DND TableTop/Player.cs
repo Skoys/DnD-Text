@@ -24,11 +24,11 @@
 
                 Console.WriteLine(" - " + roles[choice].name.ToUpper() + " - ");
                 Console.WriteLine(" Life :              " + roles[choice].life);
-                Console.WriteLine(" Attack :            " + roles[choice].life);
-                Console.WriteLine(" Magic :             " + roles[choice].life);
-                Console.WriteLine(" Physic Defence :    " + roles[choice].life);
-                Console.WriteLine(" Magic Defense :     " + roles[choice].life);
-                Console.WriteLine(" Dodging Chance :    " + roles[choice].life);
+                Console.WriteLine(" Attack :            " + roles[choice].attack);
+                Console.WriteLine(" Magic :             " + roles[choice].magic);
+                Console.WriteLine(" Physic Defence :    " + roles[choice].physicDefense);
+                Console.WriteLine(" Magic Defense :     " + roles[choice].magicDefense);
+                Console.WriteLine(" Dodging Chance :    " + roles[choice].dodge);
                 Console.WriteLine("\n ~ Continue with this member? ~ ");
                 Console.WriteLine("1: Yes           - 2: No\n");
                 if (Convert.ToInt32(Console.ReadLine()) == 1)

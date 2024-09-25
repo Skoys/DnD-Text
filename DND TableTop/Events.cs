@@ -8,33 +8,36 @@ namespace DND_TableTop
 {
     internal class Events
     {
+        Fight fight;
         Player player;
-        List<Classes> monsters = new List<Classes>();
+        public List<Classes> monsters = new List<Classes>();
 
         public void Init()
         {
+            fight = new Fight();
+
             Classes goblin = new Classes();
-            goblin.Init("Goblin", 6, 2, 1, 2, 1, 2);
+            goblin.Init("Goblin", 6, 2, 1, 1, 1, 2);
             goblin.nameAttack.Add(["Punch", "0"]);
             monsters.Add(goblin);
             Classes skeleton = new Classes();
-            goblin.Init("Skeleton", 10, 3, 5, 3, 1, 5);
-            goblin.nameAttack.Add(["Sword", "0"]);
+            skeleton.Init("Skeleton", 10, 3, 5, 2, 1, 5);
+            skeleton.nameAttack.Add(["Sword", "0"]);
             monsters.Add(skeleton);
             Classes slime = new Classes();
-            goblin.Init("Slime", 12, 3, 5, 5, 3, 8);
-            goblin.nameAttack.Add(["Body Slam", "0"]);
-            goblin.nameMagic.Add(["Explosion", "1"]);
+            slime.Init("Slime", 12, 3, 5, 3, 2, 8);
+            slime.nameAttack.Add(["Body Slam", "0"]);
+            slime.nameMagic.Add(["Explosion", "1"]);
             monsters.Add(slime);
             Classes lich = new Classes();
-            goblin.Init("Lich", 10, 3, 6, 2, 5, 2);
-            goblin.nameMagic.Add(["Dark Ray", "0"]);
-            goblin.nameMagic.Add(["Summon", "0"]);
+            lich.Init("Lich", 10, 3, 6, 1, 3, 12);
+            lich.nameMagic.Add(["Dark Ray", "0"]);
+            lich.nameAttack.Add(["Summon", "0"]);
             monsters.Add(lich);
-            //Classes golem = new Classes();
-            //goblin.Init("Golem", 6, 2, 1, 2, 1, 2);
-            //goblin.nameAttack.Add(["Punched", "0"]);
-            //monsters.Add(golem);
+            Classes golem = new Classes();
+            golem.Init("Golem", 15, 5, 2, 4, 1, 15);
+            golem.nameAttack.Add(["Throw Rock", "0"]);
+            monsters.Add(golem);
         }
 
         public void Rooms(int roomNbr)
@@ -81,7 +84,7 @@ namespace DND_TableTop
         {
             player = _player;
             Random random = new Random();
-            int randEvent = /*random.Next(3)*/0;
+            int randEvent = /*random.Next(3)*/1;
             if(randEvent == 0)
             {
                 Trap();
@@ -89,7 +92,17 @@ namespace DND_TableTop
             }
             if(randEvent == 1)
             {
-                Console.WriteLine("No monster here.\n\n  - Type anything to continue..");
+                List<Classes> attackList = new List<Classes>();
+                randEvent = random.Next(monsters.Count);
+                if (monsters[randEvent].name == "Goblin")
+                {
+                    attackList.Add(monsters[randEvent]);
+                    attackList.Add(monsters[randEvent]);
+                    attackList.Add(monsters[randEvent]);
+                }
+                else { attackList.Add(monsters[randEvent]); }
+
+                fight.Encounter(_player, attackList);
                 return;
             }
             Rooms(0);
@@ -97,10 +110,6 @@ namespace DND_TableTop
             Console.ReadLine();
         }
 
-        public void Fight()
-        {
-            
-        }
         public void Trap()
         {
             Random random = new();

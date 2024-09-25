@@ -176,7 +176,7 @@ namespace DND_TableTop
                 playerPosition = [playerPosition[0], playerPosition[1] - 1];
                 moved = true;
             }
-            if (move.ToLower() == "d" && playerPosition[0] < map.GetLength(1) - 1)
+            if (move.ToLower() == "d" && playerPosition[1] < map.GetLength(1) - 1)
             {
                 if (map[playerPosition[0], playerPosition[1] + 1] == '@')
                 {

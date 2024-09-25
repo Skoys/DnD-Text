@@ -42,3 +42,18 @@ C:\Users\alexandre.coppens\Documents\Github\DnD Text\DND TableTop\obj\Debug\net8
 C:\Users\alexandre.coppens\Documents\Github\DnD Text\DND TableTop\obj\Debug\net8.0\DND TableTop.pdb
 C:\Users\alexandre.coppens\Documents\Github\DnD Text\DND TableTop\obj\Debug\net8.0\DND TableTop.genruntimeconfig.cache
 C:\Users\alexandre.coppens\Documents\Github\DnD Text\DND TableTop\obj\Debug\net8.0\ref\DND TableTop.dll
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.AssemblyInfoInputs.cache
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.AssemblyInfo.cs
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.csproj.CoreCompileInputs.cache
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.sourcelink.json
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.dll
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\refint\DND TableTop.dll
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.pdb
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\bin\Debug\net8.0\DND TableTop.exe
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\bin\Debug\net8.0\DND TableTop.deps.json
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\bin\Debug\net8.0\DND TableTop.runtimeconfig.json
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\bin\Debug\net8.0\DND TableTop.dll
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\bin\Debug\net8.0\DND TableTop.pdb
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\DND TableTop.genruntimeconfig.cache
+C:\Users\alexandre.coppens\Documents\Github\DnD-Text\DND TableTop\obj\Debug\net8.0\ref\DND TableTop.dll
