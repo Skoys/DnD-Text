@@ -40,5 +40,13 @@
             }
             
         }
+
+        public void ChangeLife(int _life)
+        {
+            foreach (var role in currentClasses)
+            {
+                role.life += _life;
+            }
+        }
     }
 }

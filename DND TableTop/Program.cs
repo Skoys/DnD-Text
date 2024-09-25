@@ -2,6 +2,7 @@
 
 Player player = new();
 Map dungeon = new Map();
+Events eventManager = new Events();
 List<Classes> roles = new();
 
 bool _continue = true;
@@ -18,18 +19,28 @@ void Init()
     rogue.Init("Rogue", 15, 3, 3, 5, 3, 7);
 
     roles.Add(knight);
+    knight.nameAttack.Add(["Sword Slash", "0", "0"]);
     roles.Add(barbarian);
+    knight.nameAttack.Add(["Fist Fight", "0", "0"]);
     roles.Add(wizard);
+    knight.nameAttack.Add(["Fireball", "1", "0"]);
     roles.Add(rogue);
+    knight.nameAttack.Add(["Secret Knife", "0", "0"]);
 
-    //player.Init(roles);
-    dungeon.Init(player.position);
+    player.Init(roles);
+    dungeon.Init(player.position, player);
 }
 
 void Update()
 {
     dungeon.PrintMap();
     string nextMove = Console.ReadLine();
+    if (!dungeon.NextMove(nextMove)) { return;  }
+    char mapEvent = dungeon.CheckMap();
+    if (mapEvent == '*')
+    {
+        eventManager.RandomEvent(player);
+    }
 }
 
 Init();

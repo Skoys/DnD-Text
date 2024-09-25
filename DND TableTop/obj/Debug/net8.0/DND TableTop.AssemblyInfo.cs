@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DND TableTop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+922cd514de8422805eb2c41e4e9b27044e5998a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f62446e5bd22f94e278b69c42ab87e2caf916062")]
 [assembly: System.Reflection.AssemblyProductAttribute("DND TableTop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DND TableTop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DND_TableTop
 {
-    internal class Classes
+    internal class Monsters
     {
         public string name = "";
         public int life;
@@ -16,9 +16,6 @@ namespace DND_TableTop
         public int magic;
         public int dodge;
 
-        public List<string[]> nameAttack = new List<string[]>();
-        public List<string[]> nameMagic = new List<string[]>();
-        public List<string[]> nameHeal = new List<string[]>();
 
         public void Init(string _name, int _life, int _phyDef, int _magDef, int _att, int _mag, int _dodge)
         {

@@ -1,22 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\",
+  "WorkspaceRootPath": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alex\\documents\\github\\fork\\dnd-text\\dnd tabletop\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\monsters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\monsters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alex\\documents\\github\\fork\\dnd-text\\dnd tabletop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\rules.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\rules.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alex\\documents\\github\\fork\\dnd-text\\dnd tabletop\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alex\\documents\\github\\fork\\dnd-text\\dnd tabletop\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|c:\\users\\alexandre.coppens\\documents\\github\\dnd text\\dnd tabletop\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2265312-1935-4A82-BCB8-E905B897FB55}|DND TableTop\\DND TableTop.csproj|solutionrelative:dnd tabletop\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,57 +37,105 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 187,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Program.cs",
               "RelativeDocumentMoniker": "DND TableTop\\Program.cs",
-              "ToolTip": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Program.cs",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Program.cs",
               "RelativeToolTip": "DND TableTop\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T17:03:48.753Z"
+              "WhenOpened": "2024-09-24T17:03:48.753Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Monsters.cs",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Monsters.cs",
+              "RelativeDocumentMoniker": "DND TableTop\\Monsters.cs",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Monsters.cs",
+              "RelativeToolTip": "DND TableTop\\Monsters.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T08:10:52.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rules.txt",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Rules.txt",
+              "RelativeDocumentMoniker": "DND TableTop\\Rules.txt",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Rules.txt",
+              "RelativeToolTip": "DND TableTop\\Rules.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-25T08:13:29.329Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 213,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Map.cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Map.cs",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Map.cs",
               "RelativeDocumentMoniker": "DND TableTop\\Map.cs",
-              "ToolTip": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Map.cs",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Map.cs",
               "RelativeToolTip": "DND TableTop\\Map.cs",
-              "ViewState": "AQIAALIAAAAAAAAAAAD4v6oAAAAMAAAA",
+              "ViewState": "AQIAAAEBAAAAAAAAAAAcwBcBAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-24T17:04:04.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Player.cs",
               "RelativeDocumentMoniker": "DND TableTop\\Player.cs",
-              "ToolTip": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Player.cs",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Player.cs",
               "RelativeToolTip": "DND TableTop\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwC8AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T17:04:05.533Z"
+              "WhenOpened": "2024-09-24T17:04:05.533Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Classes.cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Classes.cs",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Classes.cs",
               "RelativeDocumentMoniker": "DND TableTop\\Classes.cs",
-              "ToolTip": "C:\\Users\\Alex\\Documents\\GitHub\\Fork\\DnD-Text\\DND TableTop\\Classes.cs",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Classes.cs",
               "RelativeToolTip": "DND TableTop\\Classes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T17:03:59.226Z"
+              "WhenOpened": "2024-09-24T17:03:59.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Events.cs",
+              "DocumentMoniker": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Events.cs",
+              "RelativeDocumentMoniker": "DND TableTop\\Events.cs",
+              "ToolTip": "C:\\Users\\alexandre.coppens\\Documents\\Github\\DnD Text\\DND TableTop\\Events.cs",
+              "RelativeToolTip": "DND TableTop\\Events.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB8AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T07:52:11.661Z",
+              "EditorCaption": ""
             }
           ]
         }
