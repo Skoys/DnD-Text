@@ -35,12 +35,20 @@ void Init()
 void Update()
 {
     dungeon.PrintMap();
-    string nextMove = Console.ReadLine();
+    int nextMove = Convert.ToInt32(Console.ReadLine());
     if (!dungeon.NextMove(nextMove)) { return;  }
     char mapEvent = dungeon.CheckMap();
     if (mapEvent == '*')
     {
-        eventManager.RandomEvent(player);
+        eventManager.RandomEvent(player, eventManager, roles);
+        if(player.currentClasses.Count == 0)
+        {
+            Console.WriteLine("Your party members are dead...\n");
+            Console.WriteLine("     * GAME OVER *\n");
+            Console.ReadLine();
+            _continue = false;
+            return;
+        }
     }
 }
 

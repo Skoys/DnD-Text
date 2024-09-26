@@ -8,8 +8,8 @@ namespace DND_TableTop
 {
     internal class Events
     {
-        Fight fight;
-        Player player;
+        Fight fight = new();
+        Player player = new();
         public List<Classes> monsters = new List<Classes>();
 
         public void Init()
@@ -17,25 +17,25 @@ namespace DND_TableTop
             fight = new Fight();
 
             Classes goblin = new Classes();
-            goblin.Init("Goblin", 6, 2, 1, 1, 1, 2);
+            goblin.Init("Goblin", 6, 2, 1, 5, 1, 2);
             goblin.nameAttack.Add(["Punch", "0"]);
             monsters.Add(goblin);
             Classes skeleton = new Classes();
-            skeleton.Init("Skeleton", 10, 3, 5, 2, 1, 5);
+            skeleton.Init("Skeleton", 10, 3, 5, 6, 1, 5);
             skeleton.nameAttack.Add(["Sword", "0"]);
             monsters.Add(skeleton);
             Classes slime = new Classes();
-            slime.Init("Slime", 12, 3, 5, 3, 2, 8);
+            slime.Init("Slime", 12, 3, 5, 6, 6, 8);
             slime.nameAttack.Add(["Body Slam", "0"]);
             slime.nameMagic.Add(["Explosion", "1"]);
             monsters.Add(slime);
             Classes lich = new Classes();
-            lich.Init("Lich", 10, 3, 6, 1, 3, 12);
+            lich.Init("Lich", 7, 3, 6, 1, 7, 12);
             lich.nameMagic.Add(["Dark Ray", "0"]);
             lich.nameAttack.Add(["Summon", "0"]);
             monsters.Add(lich);
             Classes golem = new Classes();
-            golem.Init("Golem", 15, 5, 2, 4, 1, 15);
+            golem.Init("Golem", 15, 5, 2, 7, 1, 15);
             golem.nameAttack.Add(["Throw Rock", "0"]);
             monsters.Add(golem);
         }
@@ -78,13 +78,31 @@ namespace DND_TableTop
                 Console.WriteLine("       |  *.,.??;?,?;.??.;.?...?;...?.*  |");
                 Console.WriteLine("        --------------------------------- \n");
             }
+            if (roomNbr == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("        --------------------------------- ");
+                Console.WriteLine("       |   *                         *   |");
+                Console.WriteLine("       |        -----------------        |");
+                Console.WriteLine("       |       |                 |       |");
+                Console.WriteLine("       |       |                 |       |");
+                Console.WriteLine("       |       |                 |       |");
+                Console.WriteLine("       |       |                 |       |");
+                Console.WriteLine("       |       |                 |       |");
+                Console.WriteLine("       |       |                 |       |");
+                Console.WriteLine("       |       |     _______     |       |");
+                Console.WriteLine("       |        ---|___   ___| --        |");
+                Console.WriteLine("       |     *     |   [o]   |     *     |");
+                Console.WriteLine("       |  *        (_________)        *  |");
+                Console.WriteLine("        --------------------------------- \n");
+            }
         }
 
-        public void RandomEvent(Player _player)
+        public void RandomEvent(Player _player, Events _events, List<Classes> roles)
         {
             player = _player;
             Random random = new Random();
-            int randEvent = /*random.Next(3)*/1;
+            int randEvent = random.Next(3);
             if(randEvent == 0)
             {
                 Trap();
@@ -102,12 +120,11 @@ namespace DND_TableTop
                 }
                 else { attackList.Add(monsters[randEvent]); }
 
-                fight.Encounter(_player, attackList);
+                fight.Encounter(_player, attackList, _events);
                 return;
             }
-            Rooms(0);
-            Console.WriteLine("The Room is empty.\n\n  - Type anything to continue..");
-            Console.ReadLine();
+            Chests(roles);
+            return;
         }
 
         public void Trap()
@@ -234,6 +251,56 @@ namespace DND_TableTop
                 Console.WriteLine("You made a bad footstep and every shiny thing come rushing to you. It's speed and strength is impaling you.");
                 Console.WriteLine("Everyone in your party take 5 damages..");
                 player.ChangeLife(-5);
+                Console.ReadLine();
+            }
+        }
+
+        public void Chests(List<Classes> roles)
+        {
+            Random random = new();
+            int rand = random.Next(4);
+            if (rand == 0)
+            {
+                Rooms(0);
+                Console.WriteLine("The Room is empty.\n\n  - Type anything to continue..");
+                Console.ReadLine();
+            }
+            if (rand == 1)
+            {
+                Rooms(2);
+                Console.WriteLine("A chest is in the center of the room. You opened it.");
+                Console.ReadLine();
+
+                Rooms(2);
+                Console.WriteLine("Wind come from the chest. You feel lighter and relieved.");
+                Console.WriteLine("Everyone in your party gain 5 health..");
+                player.ChangeLife(5);
+                Console.ReadLine();
+            }
+            if (rand == 2)
+            {
+                Rooms(2);
+                Console.WriteLine("Someone stand in the corner of the room.. ");
+                Console.ReadLine();
+
+                Rooms(2);
+                rand = random.Next(roles.Count);
+                player.currentClasses.Add(roles[rand]);
+                Console.WriteLine("A " + roles[rand].name + " joined your party ! .. ");
+                Console.ReadLine();
+                return;
+            }
+            if (rand == 3)
+            {
+                Rooms(2);
+                Console.WriteLine("A chest is in the center of the room. You opened it.");
+                Console.ReadLine();
+
+                Rooms(2);
+                rand = random.Next(20);
+                Console.WriteLine("Someone already took his content.");
+                Console.WriteLine("You find " + rand + " gold left in it.");
+                player.gold += rand;
                 Console.ReadLine();
             }
         }

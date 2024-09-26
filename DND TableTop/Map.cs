@@ -144,12 +144,12 @@ namespace DND_TableTop
             return;
         }
 
-        public bool NextMove(string move)
+        public bool NextMove(int move)
         {
             bool moved = false;
             discoveredMap[playerPosition[0], playerPosition[1]] = 'O';
 
-            if (move.ToLower() == "z" && playerPosition[0] > 0)
+            if (move == 8 && playerPosition[0] > 0)
             {
                 if (map[playerPosition[0] - 1, playerPosition[1]] == '@')
                 {
@@ -158,7 +158,7 @@ namespace DND_TableTop
                 playerPosition = [playerPosition[0] - 1, playerPosition[1]];
                 moved = true;
             }
-            if (move.ToLower() == "s" && playerPosition[0] < map.GetLength(0) - 1)
+            if (move == 2 && playerPosition[0] < map.GetLength(0) - 1)
             {
                 if (map[playerPosition[0] + 1, playerPosition[1]] == '@')
                 {
@@ -167,7 +167,7 @@ namespace DND_TableTop
                 playerPosition = [playerPosition[0] + 1, playerPosition[1]];
                 moved = true;
             }
-            if (move.ToLower() == "q" && playerPosition[1] > 0)
+            if (move == 4 && playerPosition[1] > 0)
             {
                 if (map[playerPosition[0], playerPosition[1] - 1] == '@')
                 {
@@ -176,7 +176,7 @@ namespace DND_TableTop
                 playerPosition = [playerPosition[0], playerPosition[1] - 1];
                 moved = true;
             }
-            if (move.ToLower() == "d" && playerPosition[1] < map.GetLength(1) - 1)
+            if (move == 6 && playerPosition[1] < map.GetLength(1) - 1)
             {
                 if (map[playerPosition[0], playerPosition[1] + 1] == '@')
                 {
@@ -286,11 +286,11 @@ namespace DND_TableTop
             Console.WriteLine("     .Gold = " + player.gold);
             
             Console.WriteLine("\n     --Movements--\n");
-            Console.WriteLine("          Z");
+            Console.WriteLine("          8");
             Console.WriteLine("          |");
-            Console.WriteLine("      Q --¤-- D");
+            Console.WriteLine("      4 --¤-- 6");
             Console.WriteLine("          |");
-            Console.WriteLine("          S");
+            Console.WriteLine("          2");
 
         }
         

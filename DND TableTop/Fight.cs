@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,15 @@ namespace DND_TableTop
             ennemies = _ennemies;
             events = _event;
             bool playerTurn = true;
-            while (ennemies.Count > 0 || player.currentClasses.Count > 0)
+            while (ennemies.Count > 0 && player.currentClasses.Count > 0)
             {
                 if (playerTurn)
                 {
                     int choice = ChooseParty() - 1;
-                    if (choice + 1 > player.currentClasses.Count) { return; }
+                    if (choice + 1 > player.currentClasses.Count) { choice = 0; }
 
                     int attackChoice = ChooseAttack(choice);
-                    if(attackChoice > player.currentClasses[choice].nameAttack.Count + player.currentClasses[choice].nameMagic.Count) { return; }
+                    if(attackChoice > player.currentClasses[choice].nameAttack.Count + player.currentClasses[choice].nameMagic.Count) { attackChoice = 1; }
 
                     int[] attackDamage;    
                     if(attackChoice - 1 < player.currentClasses[choice].nameAttack.Count)
@@ -47,7 +48,7 @@ namespace DND_TableTop
                         Console.WriteLine(i + 1 + ": " + ennemies[i].name);
                     }
                     int ennemyChoice = Convert.ToInt32(Console.ReadLine());
-                    if (ennemyChoice > ennemies.Count) { return; }
+                    if (ennemyChoice > ennemies.Count) { ennemyChoice = 1; }
 
                     DrawFrame ();
                     if (attackDamage[2] == 1)
@@ -57,6 +58,12 @@ namespace DND_TableTop
                             int attack = (attackDamage[0] - e.physicDefense < 0 ? 0 : attackDamage[0] - e.physicDefense) + (attackDamage[1] - e.magicDefense < 0 ? 0 : attackDamage[1] - e.magicDefense);
                             Console.WriteLine("     X " + e.name + " took " + attack + " damages!");
                             e.life -= attack;
+                            if (e.life <= 0)
+                            {
+                                Console.WriteLine("\n     X " + e.name + " is dead You gained " + e.dodge + " coins! ..");
+                                player.gold += e.dodge;
+                                ennemies.Remove(e);
+                            }
                         }
                     }
                     else if (attackDamage[2] == 0)
@@ -67,8 +74,9 @@ namespace DND_TableTop
                     }
                     if(ennemies[ennemyChoice - 1].life <= 0)
                     {
+                        Console.WriteLine("\n     X " + ennemies[ennemyChoice - 1].name + " is dead! You gained " + ennemies[ennemyChoice - 1].dodge + " coins! ..");
+                        player.gold += ennemies[ennemyChoice - 1].dodge;
                         ennemies.RemoveAt(ennemyChoice - 1);
-                        Console.WriteLine("\n     X " + ennemies[ennemyChoice - 1].name + " is dead! ..");
                     }
                     Console.ReadLine();
                     playerTurn = false;
@@ -79,6 +87,7 @@ namespace DND_TableTop
                     {
                         Random random = new Random();
                         int ennAttack = random.Next(ennemies.Count);
+                        int target = random.Next(player.currentClasses.Count);
                         int att = random.Next(2);
                         string[] nextAtt;
                         if (ennemies[ennAttack].nameAttack.Count + ennemies[ennAttack].nameMagic.Count > 1)
@@ -89,7 +98,7 @@ namespace DND_TableTop
                             }
                             else
                             {
-                                nextAtt = [ennemies[ennAttack].nameMagic[0][0], "0", Convert.ToString(ennemies[ennAttack].attack), ennemies[ennAttack].nameMagic[0][1]];
+                                nextAtt = [ennemies[ennAttack].nameMagic[0][0], "0", Convert.ToString(ennemies[ennAttack].magic), ennemies[ennAttack].nameMagic[0][1]];
                             }
                         }
                         else
@@ -100,7 +109,7 @@ namespace DND_TableTop
                             }
                             else
                             {
-                                nextAtt = [ennemies[ennAttack].nameMagic[0][0], "0", Convert.ToString(ennemies[ennAttack].attack), ennemies[ennAttack].nameMagic[0][1]];
+                                nextAtt = [ennemies[ennAttack].nameMagic[0][0], "0", Convert.ToString(ennemies[ennAttack].magic), ennemies[ennAttack].nameMagic[0][1]];
                             }
                         }
                         if (nextAtt[0] == "Summon")
@@ -112,11 +121,40 @@ namespace DND_TableTop
                         else
                         {
                             DrawFrame();
-                            Console.WriteLine("    ~ " + ennemies[ennAttack].name " used " + nextAtt[0] + ".");
+                            Console.WriteLine("    ~ " + ennemies[ennAttack].name + " used " + nextAtt[0] + ".");
+
+                            if (nextAtt[3] == "1")
+                            {
+                                foreach (var party in player.currentClasses)
+                                {
+                                    int attack = (Convert.ToInt32(nextAtt[1]) - party.physicDefense < 0 ? 0 : Convert.ToInt32(nextAtt[1]) - party.physicDefense) + (Convert.ToInt32(nextAtt[2]) - party.magicDefense < 0 ? 0 : Convert.ToInt32(nextAtt[2]) - party.magicDefense);
+                                    party.life -= attack;
+                                    Console.WriteLine("    X " + party.name + " was hit for " + attack + " damages !");
+                                    if (party.life <= 0)
+                                    {
+                                        Console.WriteLine("\n     X " + party.name + " is dead! ..");
+                                        player.currentClasses.Remove(party);
+                                    }
+                                }
+                            }
+                            else if (nextAtt[3] == "0")
+                            {
+                                int attack = (Convert.ToInt32(nextAtt[1]) - player.currentClasses[target].physicDefense < 0 ? 0 : Convert.ToInt32(nextAtt[1]) - player.currentClasses[target].physicDefense) + (Convert.ToInt32(nextAtt[2]) - player.currentClasses[target].magicDefense < 0 ? 0 : Convert.ToInt32(nextAtt[2]) - player.currentClasses[target].magicDefense);
+                                player.currentClasses[target].life -= attack;
+                                Console.WriteLine("    X " + player.currentClasses[target].name + " was hit for " + attack + " damages !");
+                                if (player.currentClasses[target].life <= 0)
+                                {
+                                    Console.WriteLine("\n     X " + player.currentClasses[target].name + " is dead! ..");
+                                    _player.currentClasses.Remove(player.currentClasses[target]);
+                                }
+                            }
+                            Console.ReadLine();
+                            playerTurn = true;
                         }
                     }
                 }
             }
+
         }
 
         private int ChooseAttack(int choice)
@@ -145,7 +183,7 @@ namespace DND_TableTop
             DrawFrame();
             for (int i = 0; i < player.currentClasses.Count; i++)
             {
-                Console.WriteLine(i + 1 + ": " + player.currentClasses[i].name);
+                Console.WriteLine(i + 1 + ": " + player.currentClasses[i].name + " - " + player.currentClasses[i].life);
             }
             Console.WriteLine("\nChoose a party member..");
             return Convert.ToInt32(Console.ReadLine());
