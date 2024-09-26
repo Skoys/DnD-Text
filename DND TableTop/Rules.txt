@@ -38,3 +38,10 @@ Skeleton
 Slime
 Lich
 Golem
+
+Fix l'attaque
+Knight
+Barbarian
+Wizard
+Rogue
+Lich

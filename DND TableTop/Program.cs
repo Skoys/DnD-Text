@@ -5,6 +5,8 @@ Map dungeon = new Map();
 Events eventManager = new Events();
 List<Classes> roles = new();
 
+bool visitMerchant = false;
+
 bool _continue = true;
 
 void Init()
@@ -28,6 +30,7 @@ void Init()
     rogue.nameAttack.Add(["Secret Knife", "0", "0"]);
 
     player.Init(roles);
+    player.gold = 10;
     dungeon.Init(player.position, player);
     eventManager.Init();
 }
@@ -49,6 +52,33 @@ void Update()
             _continue = false;
             return;
         }
+    }
+    if (mapEvent == 'M' && visitMerchant == false)
+    {
+        Merchant merchant = new Merchant();
+        merchant.Encounter(player);
+        visitMerchant = true;
+    }
+    if (mapEvent == 'B')
+    {
+        eventManager.BossFight(player, eventManager, roles);
+        if (player.currentClasses.Count == 0)
+        {
+            Console.Clear();
+            Console.WriteLine("Your party members are dead...\n");
+            Console.WriteLine("     * GAME OVER *\n");
+            Console.ReadLine();
+            _continue = false;
+            return;
+        }
+        Console.WriteLine("-#~~#-#~~#-#~~#-#~~#-#~~#-#~~#-#~~#-\n");
+        Console.WriteLine("      * CONGLATURATION ! *\n");
+        Console.WriteLine("     You Finished The Game !   \n");
+        Console.WriteLine("          Well Played !   \n");
+        Console.WriteLine("-#~~#-#~~#-#~~#-#~~#-#~~#-#~~#-#~~#-\n");
+        Console.ReadLine();
+        _continue = false;
+        return;
     }
 }
 

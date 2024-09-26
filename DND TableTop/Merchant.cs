@@ -42,6 +42,7 @@ namespace DND_TableTop
             {
                 Console.WriteLine(i + ". [" + item[0] + "] : " + item[1] + " -> " + item[2] + " golds.");
                 Console.WriteLine("   - " + item[3] + "\n");
+                i++;
             }
             Console.WriteLine("EXIT : Leave the merchant \n");
             Console.WriteLine(" - - - - - - - - - - - - - - - - - - - -\n\n\n");
@@ -64,7 +65,7 @@ namespace DND_TableTop
                     Console.WriteLine("To which party member ?\n");
                     for (int j = 0; j < player.currentClasses.Count; j++)
                     {
-                        Console.WriteLine(j + 1 + ": " + player.currentClasses[i].name);
+                        Console.WriteLine(j + 1 + ": " + player.currentClasses[j].name);
                     }
                     int partyChoosed = Convert.ToInt32(Console.ReadLine()) - 1;
                     if (partyChoosed > player.currentClasses.Count - 1) { partyChoosed = player.currentClasses.Count - 1; }
@@ -81,8 +82,12 @@ namespace DND_TableTop
                                 return;
                             }
                             ShowItems();
+                            player.currentClasses[partyChoosed].nameMagic.Add(["Heal", "0", "0"]);
                             Console.WriteLine(" Your Knight can use Heal to heal him.. \n");
-                            if (player.currentClasses[partyChoosed].name != "Knight"
+                        }
+                        if (itemList[i - 1][1] == "War cry")
+                        {
+                            if (player.currentClasses[partyChoosed].name != "Barbarian")
                             {
                                 ShowItems();
                                 Console.WriteLine(" You can't give him this capacity.. \n");
@@ -90,7 +95,34 @@ namespace DND_TableTop
                                 return;
                             }
                             ShowItems();
-                            Console.WriteLine(" Your Knight can use Heal to heal him.. \n");
+                            player.currentClasses[partyChoosed].nameMagic.Add(["War cry", "1", "0"]);
+                            Console.WriteLine(" Your Barbarian can now increase the strength of your party.. \n");
+                        }
+                        if (itemList[i - 1][1] == "Heal fountain")
+                        {
+                            if (player.currentClasses[partyChoosed].name != "Wizard")
+                            {
+                                ShowItems();
+                                Console.WriteLine(" You can't give him this capacity.. \n");
+                                Console.ReadLine();
+                                return;
+                            }
+                            ShowItems();
+                            player.currentClasses[partyChoosed].nameMagic.Add(["Heal fountain", "1", "0"]);
+                            Console.WriteLine(" Your Wizard can now heal your party.. \n");
+                        }
+                        if (itemList[i - 1][1] == "Darkness")
+                        {
+                            if (player.currentClasses[partyChoosed].name != "Rogue")
+                            {
+                                ShowItems();
+                                Console.WriteLine(" You can't give him this capacity.. \n");
+                                Console.ReadLine();
+                                return;
+                            }
+                            ShowItems();
+                            player.currentClasses[partyChoosed].nameMagic.Add(["Darkness", "0", "0"]);
+                            Console.WriteLine(" The poison on this knife weaken your opponent.. \n");
                         }
                     }
                     else
@@ -103,13 +135,13 @@ namespace DND_TableTop
                         }
                         if (itemList[i - 1][1] == "Strength Talisman")
                         {
-                            player.currentClasses[i].attack += 3;
+                            player.currentClasses[partyChoosed].attack += 3;
                             ShowItems();
                             Console.WriteLine(" You gave your " + player.currentClasses[partyChoosed].name + " the Strength Talisman. He feel stronger now..\n");
                         }
                         if (itemList[i - 1][1] == "Magic Pearl")
                         {
-                            player.currentClasses[i].magic += 2;
+                            player.currentClasses[partyChoosed].magic += 2;
                             ShowItems();
                             Console.WriteLine(" You gave your " + player.currentClasses[partyChoosed].name + " the Magic Pearl. He feel the magic flowing throught him..\n");
                         }

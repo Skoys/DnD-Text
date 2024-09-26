@@ -21,23 +21,28 @@ namespace DND_TableTop
             goblin.nameAttack.Add(["Punch", "0"]);
             monsters.Add(goblin);
             Classes skeleton = new Classes();
-            skeleton.Init("Skeleton", 10, 3, 5, 6, 1, 5);
+            skeleton.Init("Skeleton", 10, 2, 4, 6, 1, 5);
             skeleton.nameAttack.Add(["Sword", "0"]);
             monsters.Add(skeleton);
             Classes slime = new Classes();
-            slime.Init("Slime", 12, 3, 5, 6, 6, 8);
+            slime.Init("Slime", 12, 2, 4, 6, 6, 8);
             slime.nameAttack.Add(["Body Slam", "0"]);
             slime.nameMagic.Add(["Explosion", "1"]);
             monsters.Add(slime);
             Classes lich = new Classes();
-            lich.Init("Lich", 7, 3, 6, 1, 7, 12);
+            lich.Init("Lich", 7, 2, 5, 1, 7, 12);
             lich.nameMagic.Add(["Dark Ray", "0"]);
             lich.nameAttack.Add(["Summon", "0"]);
             monsters.Add(lich);
             Classes golem = new Classes();
-            golem.Init("Golem", 15, 5, 2, 7, 1, 15);
+            golem.Init("Golem", 15, 4, 2, 7, 1, 15);
             golem.nameAttack.Add(["Throw Rock", "0"]);
             monsters.Add(golem);
+            Classes dragon = new Classes();
+            dragon.Init("Dragon", 150, 6, 4, 3, 3, 1000);
+            dragon.nameAttack.Add(["Claw", "0"]);
+            dragon.nameMagic.Add(["FireBreath", "1"]);
+            monsters.Add(dragon);
         }
 
         public void Rooms(int roomNbr)
@@ -111,7 +116,7 @@ namespace DND_TableTop
             if(randEvent == 1)
             {
                 List<Classes> attackList = new List<Classes>();
-                randEvent = random.Next(monsters.Count);
+                randEvent = random.Next(monsters.Count - 1);
                 if (monsters[randEvent].name == "Goblin")
                 {
                     attackList.Add(monsters[randEvent]);
@@ -125,6 +130,14 @@ namespace DND_TableTop
             }
             Chests(roles);
             return;
+        }
+        public void BossFight(Player _player, Events _events, List<Classes> roles)
+        {
+            List<Classes> attackList = new List<Classes>();
+            attackList.Add(monsters[5]);
+            attackList.Add(monsters[3]);
+            attackList.Add(monsters[2]);
+            fight.Encounter(_player, attackList, _events);
         }
 
         public void Trap()
@@ -155,6 +168,7 @@ namespace DND_TableTop
                 Console.WriteLine("Everyone in your party take 3 damages..");
                 player.ChangeLife(-3);
                 Console.ReadLine();
+                return ;
             }
             if(rand == 1)
             {
@@ -181,6 +195,7 @@ namespace DND_TableTop
                 Console.WriteLine("Everyone in your party take 4 damages..");
                 player.ChangeLife(-4);
                 Console.ReadLine();
+                return;
             }
             if(rand == 2)
             {
@@ -228,6 +243,7 @@ namespace DND_TableTop
                 Console.WriteLine("Everyone in your party take 4 damages..");
                 player.ChangeLife(-4);
                 Console.ReadLine();
+                return;
             }
             if(rand == 4)
             {
@@ -252,6 +268,7 @@ namespace DND_TableTop
                 Console.WriteLine("Everyone in your party take 5 damages..");
                 player.ChangeLife(-5);
                 Console.ReadLine();
+                return;
             }
         }
 
@@ -284,8 +301,22 @@ namespace DND_TableTop
                 Console.ReadLine();
 
                 Rooms(2);
-                rand = random.Next(roles.Count);
-                player.currentClasses.Add(roles[rand]);
+                bool ok = false;
+                while (!ok)
+                {
+                    rand = random.Next(roles.Count);
+                    if(player.currentClasses.Count == 4)
+                    {
+                        Console.WriteLine("It was just a rat .. ");
+                        Console.ReadLine();
+                        return;
+                    }
+                    if (!player.currentClasses.Contains(roles[rand]))
+                    {
+                        player.currentClasses.Add(roles[rand]);
+                        ok = true;
+                    }
+                }
                 Console.WriteLine("A " + roles[rand].name + " joined your party ! .. ");
                 Console.ReadLine();
                 return;

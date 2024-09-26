@@ -60,7 +60,7 @@ namespace DND_TableTop
             Random rand = new Random();
             int rnd = rand.Next(bossPos.Count);
             map[bossPos[rnd][0], bossPos[rnd][1]] = 'B';
-            NextMove("");
+            NextMove(5);
         }
 
         private int[] AddRoom(int[] currentPos)
